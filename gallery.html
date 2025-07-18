@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hyde Park Photo Gallery</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f8f9fa;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    nav {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #0077cc;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .photo {
+      width: 200px;
+      position: relative;
+      text-align: center;
+    }
+
+    .photo img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+      border: 2px solid #ccc;
+    }
+
+    .caption {
+      margin-top: 5px;
+      font-weight: bold;
+    }
+
+    .description {
+      position: absolute;
+      bottom: 35px;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 5px;
+      visibility: hidden;
+      font-size: 0.85em;
+    }
+
+    .photo:hover {
+      cursor: pointer;
+    }
+
+    .photo:hover .description {
+      visibility: visible;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Hyde Park Photo Gallery</h1>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="events.html">Events & Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <ul id="gallery"></ul>
+
+  <script>
+    const imageFiles = [
+      "hyde1.jpg", "hyde2.jpg", "hyde3.jpg", "hyde4.jpg", "hyde5.jpg",
+      "hyde6.jpg", "hyde7.jpg", "hyde8.jpg", "hyde9.jpg", "hyde10.jpg"
+    ];
+
+    const captionTexts = [
+      "Riverwalk along Hillsborough River",
+      "Tree-lined paths in Hyde Park",
+      "Hyde Park Village Sign",
+      "Courtyard dining in the plaza",
+      "Gasparilla Festival in full swing",
+      "Sant' Yago Night Parade celebration",
+      "Raymond James Stadium - Game Day",
+      "View of Downtown Tampa",
+      "Sunset over Clearwater Beach",
+      "Waterfront from St. Pete"
+    ];
+
+    const descTexts = [
+      "A relaxing walk along the scenic Hillsborough River.",
+      "A peaceful view of Hyde Park’s tree-lined streets.",
+      "The iconic Hyde Park Village sign, a symbol of the area.",
+      "Dining and shopping in the heart of Hyde Park Plaza.",
+      "The annual Gasparilla Festival, a community favorite.",
+      "A colorful and vibrant celebration during the Sant' Yago Parade.",
+      "Fans gather to watch the Tampa Bay Buccaneers at home.",
+      "A view of Tampa’s modern skyline from a unique perspective.",
+      "The golden hour at Clearwater Beach – a perfect Tampa sunset.",
+      "Beautiful waterfront views of St. Petersburg, Florida."
+    ];
+
+    const gallery = document.getElementById("gallery");
+
+    for (let i = 0; i < imageFiles.length; i++) {
+      const listItem = document.createElement("li");
+      listItem.id = `photo${i + 1}`;
+      listItem.className = "photo";
+
+      const img = document.createElement("img");
+      img.src = `images/${imageFiles[i]}`;
+      img.alt = captionTexts[i];
+
+      const caption = document.createElement("div");
+      caption.className = "caption";
+      caption.textContent = captionTexts[i];
+
+      const description = document.createElement("div");
+      description.className = "description";
+      description.textContent = descTexts[i];
+
+      listItem.appendChild(img);
+      listItem.appendChild(caption);
+      listItem.appendChild(description);
+      gallery.appendChild(listItem);
+    }
+  </script>
+
+  <footer>
+    <p>&copy; 2024 Hyde Park Community Board | Tampa, Florida</p>
+  </footer>
+</body>
+</html>
