@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -10,6 +10,23 @@
 <body>
   <header>
     <h1>Community Events & Services</h1>
+
+    <!-- ✅ Conditional Greeting -->
+    <script>
+      const hour = new Date().getHours();
+      let message;
+
+      if (hour < 12) {
+        message = "☀️ Good morning! Start your day with upcoming Hyde Park events.";
+      } else if (hour < 18) {
+        message = "🌤️ Good afternoon! See what's happening in the neighborhood today.";
+      } else {
+        message = "🌙 Good evening! Plan ahead for tomorrow’s community activities.";
+      }
+
+      document.write(`<p style="font-weight:bold; color:#004080;">${message}</p>`);
+    </script>
+
     <p>Stay Connected with Hyde Park</p>
     <nav>
       <a href="index.html">Home</a>
