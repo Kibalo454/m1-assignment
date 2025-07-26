@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact Us - Hyde Park Community Board</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="contact-method.js" defer></script>
 </head>
 
 <body>
@@ -25,37 +26,45 @@
     <p><em>Reach out to us — we’d love to hear from you!</em></p>
 
     <section>
-      <h3>Board Contact Information</h3>
-      <p>
-        <strong>Email:</strong> <a href="mailto:info@hydeparktampa.org">info@hydeparktampa.org</a><br />
-        <strong>Phone:</strong> (813) 555-HYDE<br />
-        <strong>Address:</strong> 123 South Boulevard, Tampa, FL 33606
-      </p>
-    </section>
-
-    <section>
-      <h3>Monthly Community Meetings</h3>
-      <p>
-        <strong>When:</strong> First Tuesday of every month at 7:00 PM<br />
-        <strong>Where:</strong> Hyde Park United Methodist Church<br />
-        <strong>Who:</strong> All residents are welcome!
-      </p>
-    </section>
-
-    <section>
-      <h3>General Inquiries or Feedback</h3>
-      <p>Have a question, concern, or idea? Let us know using the contact form below:</p>
+      <h3>General Inquiry Form</h3>
       <form action="#" method="post">
-        <label for="name">Name:</label><br />
-        <input type="text" id="name" name="name" required /><br /><br />
+        <!-- Full Name -->
+        <label for="fullname">Enter your full name:</label><br />
+        <input type="text" id="fullname" name="fullname" required /><br /><br />
 
-        <label for="email">Email:</label><br />
-        <input type="email" id="email" name="email" required /><br /><br />
+        <!-- Gender Selection -->
+        <p>Select your gender:</p>
+        <input type="radio" id="male" name="gender" value="male" />
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female" />
+        <label for="female">Female</label><br /><br />
 
-        <label for="message">Message:</label><br />
+        <!-- Contact Method Dropdown -->
+        <label for="contact-method">How should we contact you?</label><br />
+        <select id="contact-method" name="contact-method" required>
+          <option value="">Select One</option>
+          <option value="email">Email</option>
+          <option value="phone">Phone</option>
+        </select><br /><br />
+
+        <!-- Conditional Input: Email -->
+        <div id="email-container" style="display: none;">
+          <label for="dynamic-email">Enter your email:</label><br />
+          <input type="email" id="dynamic-email" name="dynamic-email" /><br /><br />
+        </div>
+
+        <!-- Conditional Input: Phone -->
+        <div id="phone-container" style="display: none;">
+          <label for="dynamic-phone">Enter your phone:</label><br />
+          <input type="tel" id="dynamic-phone" name="dynamic-phone" /><br /><br />
+        </div>
+
+        <!-- Reason for Visit -->
+        <label for="message">Tell us the reason of your visit today:</label><br />
         <textarea id="message" name="message" rows="5" required></textarea><br /><br />
 
-        <input type="submit" value="Send Message" />
+        <!-- Submit Button -->
+        <input type="submit" value="Sign-up" />
       </form>
     </section>
   </main>
